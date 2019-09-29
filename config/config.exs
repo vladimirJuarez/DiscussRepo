@@ -30,6 +30,7 @@ config :ueberauth, Ueberauth,
   providers: [
     github: { Ueberauth.Strategy.Github, [] }
   ]
+  
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,
   client_id: "e0a251ee47c9503c75d9",
   client_secret: "7e197f1217409e7f6b9fbbcb107360b5b5764853"
