@@ -1,8 +1,8 @@
 defmodule Discuss.Comment do
     use Discuss.Web, :model
 
-    schema "topics" do
-        field :content, string
+    schema "comments" do
+        field :content, :string
         belongs_to :user, Discuss.User
         belongs_to :topic, Discuss.Topic
 
