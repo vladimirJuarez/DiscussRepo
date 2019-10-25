@@ -6,7 +6,7 @@ defmodule Discuss.AuthController do
 
     def callback(%{assigns: %{ueberauth_auth: auth}} = conn, params) do  
         # IO.puts "++++++++"
-        # IO.inspect(conn.assigns)
+        #IO.inspect(conn.assigns)
         # IO.puts "++++++++"
         # IO.inspect(params)
         # IO.puts "++++++++"      
@@ -27,6 +27,12 @@ defmodule Discuss.AuthController do
                 |> put_flash(:error, "Error signing in")
                 |> redirect(to: topic_path(conn, :index))
         end
+    end
+
+    def signout(conn, _params) do
+        conn
+        |> configure_session(drop: true)
+        |> redirect(to: topic_path(conn, :index))
     end
 
     defp insert_or_update_user(changeset) do
